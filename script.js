@@ -5,7 +5,7 @@ let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 // saveTodoFunction
 function saveTodos() {
-//   localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 let editIdx = -1;
@@ -24,26 +24,69 @@ form.addEventListener("submit", (e) => {
       completed: false,
     });
   } else {
+    todos[editIdx].text = text;
+    todos[editIdx].priority = priority;
+    editIdx = -1;
   }
   form.reset();
   saveTodos();
   renderTodos();
 });
 
+function filterOpt(filter) {
+  currentVal = filter;
+  document.querySelectorAll(".filterBtns button").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  event.target.classList.add("active");
+  renderTodos();
+}
+
 function renderTodos() {
   list.innerHTML = "";
   todos.forEach((todo, idx) => {
+    if (currentVal === "all") {
+    } else if (currentVal === "pending") {
+      if (todo.completed) {
+        return;
+      }
+    } else if (currentVal === "completed") {
+      if (!todo.completed) {
+        return;
+      }
+    }
     let li = document.createElement("li");
-    li.innerHTML = ` <span class="${todo.completed ? 'line' : ''}" onclick="toggle(${idx})">${todo.text}</span>
+    li.innerHTML = ` <span class="${todo.completed ? "line" : ""}" onclick="toggle(${idx})">${todo.text}</span>
          <span class="${todo.priority}">${todo.priority}</span>
          <button onclick="del(${idx})">Del</button>
          <button onclick="edit(${idx})">Edit</button>`;
     list.appendChild(li);
+
+    document.getElementById("totalTodos").textContent = `${todos.length}`
   });
 }
 
+// Toggle Function
 function toggle(idx) {
   todos[idx].completed = !todos[idx].completed;
   renderTodos();
   saveTodos();
 }
+
+// Delete Todo
+function del(idx) {
+  todos.splice(idx, 1);
+  renderTodos();
+  saveTodos();
+}
+
+//Edit Todo
+function edit(idx) {
+  document.getElementById("display").value = todos[idx].text;
+  document.getElementById("priority").value = todos[idx].priority;
+  editIdx = idx;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderTodos();
+});

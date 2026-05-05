@@ -21,20 +21,17 @@
             <button type="submit">Add</button>
         </form>
 
+        <!-- AddTotalTosos -->
+         <p id="totalTodos"></p>
         <!-- FilterOptionButtons -->
-        <section id="filterBtns">
-            <button onclick="filter('all')">All</button>
-            <button onclick="filter('pending')">Pending</button>
-            <button onclick="filter('completed')">Completed</button>
+        <section class="filterBtns">
+            <button onclick="filterOpt('all')" class="active">All</button>
+            <button onclick="filterOpt('pending')">Pending</button>
+            <button onclick="filterOpt('completed')">Completed</button>
         </section>
 
         <!-- TodosList -->
          <ul id="list"></ul>
-<!-- 
-         <span class="${todo.completed ? line : ''}" onclick="toggle(${idx})">${todo.text}</span>
-         <span class="${todo.priority}">${todo.priority}</span>
-         <button onclick="del(${idx})">Del</button>
-         <button onclick="edit(${idx})">Edit</button> -->
     </div>
     <script src="script.js"></script>
 </body>

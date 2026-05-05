@@ -21,3 +21,8 @@
  .line {
     text-decoration: line-through;
  }
+
+ button.active {
+    background-color: black;
+    color: white;
+ }
