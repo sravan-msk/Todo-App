@@ -56,14 +56,16 @@ function renderTodos() {
       }
     }
     let li = document.createElement("li");
-    li.innerHTML = ` <span class="${todo.completed ? "line" : ""}" onclick="toggle(${idx})">${todo.text}</span>
+    li.innerHTML = ` <span id="space" class="${todo.completed ? "line" : ""}" onclick="toggle(${idx})">${todo.text}</span>
          <span class="${todo.priority}">${todo.priority}</span>
+         <div>
          <button onclick="del(${idx})">Del</button>
-         <button onclick="edit(${idx})">Edit</button>`;
+         <button onclick="edit(${idx})">Edit</button>
+         </div>`;
     list.appendChild(li);
-
-    document.getElementById("totalTodos").textContent = `${todos.length}`
   });
+  document.getElementById("totalTodos").textContent =
+    `Total Todos : ${todos.length}`;
 }
 
 // Toggle Function

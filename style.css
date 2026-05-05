@@ -12,17 +12,64 @@
      height: 100vh;
      width: 100%;
      font-family: 'Poppins';
+     display: flex;
+     align-items: center;
+     justify-content: center;
  }
 
- .container {
-    max-width: 1200px;
-    margin-inline: auto;
- }
  .line {
-    text-decoration: line-through;
+     text-decoration: line-through;
  }
 
  button.active {
-    background-color: black;
-    color: white;
+     background-color: black;
+     color: white;
+ }
+
+ button {
+     padding: 3px 10px;
+     outline: none;
+ }
+
+ h3 {
+     text-align: center;
+     margin-bottom: 10px;
+     font-family: 'Poppins';
+ }
+
+ .container {
+     width: 900px;
+     padding: 20px;
+     margin-inline: auto;
+     height: 80vh;
+     border: 1px solid black;
+     border-radius: 6px;
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+ }
+
+ #display,
+ #priority {
+     padding: 3px 10px;
+
+ }
+
+ #list {
+     display: flex;
+     gap: 15px;
+     flex-direction: column;
+     list-style: none;
+     overflow-y: scroll;
+ }
+
+ #list>li {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background-color: rgb(29, 215, 212);
+     padding: 5px;
+ }
+ #list> li > #space {
+    width: 60%;
  }
