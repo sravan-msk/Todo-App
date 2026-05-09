@@ -29,6 +29,7 @@
  button {
      padding: 3px 10px;
      outline: none;
+     cursor: pointer;
  }
 
  h3 {
@@ -67,9 +68,93 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
-     background-color: rgb(29, 215, 212);
+     background-color: rgba(128, 128, 128, 0.178);
      padding: 5px;
  }
- #list> li > #space {
-    width: 60%;
+
+ #list>li>#space {
+     width: 60%;
+     overflow-wrap: break-word;
+ }
+
+ .btnContainer {
+     display: flex;
+     flex-wrap: nowrap;
+     gap: 10px;
+     margin-left: 20px;
+ }
+
+ .high {
+     background-color: red;
+     font-size: small;
+     padding: 2px 10px;
+     border-radius: 6px;
+     font-weight: bold;
+     color: white;
+ }
+
+ .medium {
+     background-color: rgba(0, 128, 0, 0.827);
+     font-size: small;
+     padding: 2px 5px;
+     border-radius: 6px;
+     font-weight: bold;
+     color: white;
+ }
+
+ .low {
+     background-color: rgb(0, 195, 255);
+     font-size: small;
+     padding: 2px 10px;
+     border-radius: 6px;
+     font-weight: bold;
+     color: white;
+ }
+
+ /* For Chrome, Edge, Safari */
+ ::-webkit-scrollbar {
+     width: 1px;
+ }
+
+ ::-webkit-scrollbar-track {
+     background: #ffffff;
+ }
+
+
+ ::-webkit-scrollbar-thumb:hover {
+     background: #999999;
+ }
+
+ /* For Firefox */
+ * {
+     scrollbar-width: thin;
+     scrollbar-color: #cccccc #ffffff;
+ }
+
+ ::-webkit-scrollbar-thumb {
+     background: white;
+     border: 1px solid #ddd;
+ }
+
+ @media(max-width:425px) {
+     .container {
+         width: 100vw;
+         height: 100vh;
+         border-radius: none;
+         border: none;
+     }
+
+     .btnContainer {
+         gap: 5px;
+     }
+
+     #list>li>#space {
+         width: 50%;
+     }
+     #form > button {
+        margin-top: 10px;
+     }
+     #form >input {
+        width: 100%;
+     }
  }

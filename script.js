@@ -58,9 +58,9 @@ function renderTodos() {
     let li = document.createElement("li");
     li.innerHTML = ` <span id="space" class="${todo.completed ? "line" : ""}" onclick="toggle(${idx})">${todo.text}</span>
          <span class="${todo.priority}">${todo.priority}</span>
-         <div>
-         <button onclick="del(${idx})">Del</button>
-         <button onclick="edit(${idx})">Edit</button>
+         <div class="btnContainer">
+         <button onclick="del(${idx})"><i class="fa-solid fa-trash"></i></button>
+         <button onclick="edit(${idx})"><i class="fa-solid fa-pen-to-square"></i></button>
          </div>`;
     list.appendChild(li);
   });
